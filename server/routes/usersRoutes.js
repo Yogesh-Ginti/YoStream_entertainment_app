@@ -1,14 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { handleSignUp, handleLogin, handleLogout, handleprofile } = require("../controllers/user");
-const isUserAuthenticate = require("../middlewares/userAuth");
+const { handleSignUp, handleLogin, handleLogout } = require("../controllers/userControllers");
 
 
 // Route to register
 router.post('/signup', handleSignUp);
+// Route to Login
 router.post('/login', handleLogin);
+// Route to Logout
 router.post('/logout', handleLogout);
-// router.get('/profile', isUserAuthenticate, handleprofile);
 
 
 

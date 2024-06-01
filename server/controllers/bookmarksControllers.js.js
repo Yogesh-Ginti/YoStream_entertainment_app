@@ -1,4 +1,3 @@
-// backend/controllers/bookmarksController.js
 const BookmarksModel = require('../models/bookmarks');
 const UserModel = require('../models/user');
 

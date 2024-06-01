@@ -10,7 +10,7 @@ const isUserAuthenticate = (req, res, next) => {
 
   try {
     const data = jwt.verify(token, secret);
-    req.user = data; // Add the user information to the request object
+    req.user = data; // Adding the user information to the request object
     next(); // Proceed to the next middleware/route handler
   } catch (err) {
     res.status(400).json({ success: false, user:null, message: 'Invalid Token' });

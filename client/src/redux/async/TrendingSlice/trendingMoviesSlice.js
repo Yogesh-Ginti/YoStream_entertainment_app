@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { tmdb_base_url, apiKey } from "../../../../utils/constants";
+import { tmdb_base_url, apiKey } from "../../../utils/constants";
 
 // Async thunk function to fetch trending movies list from the API
 export const fetchTrendingMoviesList = createAsyncThunk(

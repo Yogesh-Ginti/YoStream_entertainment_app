@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchTrendingMoviesList } from '../../redux/async/SearchBar/TrendingSlice/trendingMoviesSlice';
 import LargeCard from '../cards/LargeCard';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { settings } from '../../utils/sliderSetting'; // Assuming settings are predefined in a separate file
+import { fetchTrendingMoviesList } from '../../redux/async/TrendingSlice/trendingMoviesSlice';
 
 function TrendingMovies() {
   const dispatch = useDispatch();

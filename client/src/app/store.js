@@ -6,8 +6,8 @@ import popularMoviesReducer from "../redux/async/MoviesSlice/popularMoviesListSl
 import airingTodayShowsReducer from "../redux/async/TVSlice/airingTodayShowsList";
 import topRatedShowsReducer from "../redux/async/TVSlice/topRatedShowsList";
 import popularShowsReducer from "../redux/async/TVSlice/popularShowsList";
-import trendingMoviesReducer from "../redux/async/SearchBar/TrendingSlice/trendingMoviesSlice";
-import trendingShowsReducer from "../redux/async/SearchBar/TrendingSlice/trendingShowsSlice";
+import trendingMoviesReducer from "../redux/async/TrendingSlice/trendingMoviesSlice";
+import trendingShowsReducer from "../redux/async/TrendingSlice/trendingShowsSlice";
 import searchBarReducer from "../redux/async/SearchBar/searchBarSlice";
 import movieContentReducer from "../redux/async/MoviesSlice/movieContentSlice";
 import tvContentReducer from "../redux/async/TVSlice/tvContentSlice";

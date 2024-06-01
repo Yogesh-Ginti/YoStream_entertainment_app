@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const {handleAddBookmarks,handleAllBookmarks, handleRemoveBookmarks} = require('../controllers/bookmarks');
-const isUserAuthenticate = require("../middlewares/userAuth");
+const {handleAddBookmarks,handleAllBookmarks, handleRemoveBookmarks} = require('../controllers/bookmarksControllers.js.js');
+const isUserAuthenticate = require("../middlewares/userAuth.js");
 
 
 

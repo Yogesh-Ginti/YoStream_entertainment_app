@@ -5,8 +5,8 @@ const connectDB = require('./dbConnection')
 const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv');
 
-const userRouter = require('./routes/users');
-const bookmarksRouter = require('./routes/bookmarks')
+const userRouter = require('./routes/usersRoutes');
+const bookmarksRouter = require('./routes/bookmarksRoutes')
 
 
 // Load environment variables 
