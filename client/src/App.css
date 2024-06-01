@@ -1,0 +1,26 @@
+#root{
+  background-color: black;
+  color: white;
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+
+.spinner {
+  border: 5px solid rgba(235, 235, 13, 0.846);
+  border-left-color: #333; /* Adjust spinner color here */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
