@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const secret = process.env.SECRET_KEY
 const UserModel = require('../models/user');
-
-const secret = "yogesh@123"
 
 const handleSignUp = async (req, res) => {
   const { username, email, password } = req.body;
@@ -53,11 +52,11 @@ const handleLogin = async (req, res) => {
 
     // Check if user exists and password is valid
     if (!user) {
-      return res.status(401).json({ success: false, message: 'Invalid username or password1!' });
+      return res.status(401).json({ success: false, message: 'Invalid username or password' });
     }
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
-      return res.status(401).json({ success: false, message: 'Invalid username or password2!' });
+      return res.status(401).json({ success: false, message: 'Invalid username or password' });
     }
 
     // Generate JWT token
@@ -79,35 +78,11 @@ const handleLogout = async (req, res) => {
   res.status(200).json({ success: true, message: 'Logged out successfully' });
 }
 
-const handleprofile = async(req, res)=>{
-  const {email} = req.user
-  try {
-    let user = await UserModel.findOne({email})
-    if (!user) {
-			return res.status(404).json({
-				success: false,
-				message: "User not found",
-			});
-		}
-    res.status(200).json({
-      success : true,
-      username : user.username
-      
-    })
-  } catch (error) {
-    res.status(500).json({
-      success : false,
-      error : "Internal server error"
-    })
-  }
-
-}
 
 
 
 module.exports = {
   handleSignUp,
   handleLogin,
-  handleLogout,
-  handleprofile
+  handleLogout
 }

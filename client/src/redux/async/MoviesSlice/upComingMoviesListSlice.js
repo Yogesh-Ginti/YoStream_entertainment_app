@@ -30,6 +30,7 @@ const upcomingMoviesListSlice = createSlice({
     builder
       .addCase(fetchUpcomingMoviesList.pending, (state) => {
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchUpcomingMoviesList.fulfilled, (state, action) => {
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful

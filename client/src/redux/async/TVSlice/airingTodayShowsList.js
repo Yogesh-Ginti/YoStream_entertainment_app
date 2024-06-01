@@ -28,6 +28,7 @@ const airingTodayShowsListSlice = createSlice({
     builder
       .addCase(fetchAiringTodayShowsList.pending, (state, action)=>{
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchAiringTodayShowsList.fulfilled, (state, action)=>{
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful

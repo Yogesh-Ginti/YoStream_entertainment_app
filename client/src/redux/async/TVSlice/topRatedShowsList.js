@@ -28,6 +28,7 @@ const topRatedShowsListSlice = createSlice({
     builder
       .addCase(fetchTopRatedShowsList.pending, (state, action)=>{
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchTopRatedShowsList.fulfilled, (state, action)=>{
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful

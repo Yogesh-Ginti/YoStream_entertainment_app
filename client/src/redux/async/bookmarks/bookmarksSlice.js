@@ -60,6 +60,7 @@ const bookmarksSlice = createSlice({
       // Cases for adding a bookmark
       .addCase(AddToUserBookmarks.pending, (state) => {
         state.status = "loading";
+        state.error = "";
       })
       .addCase(AddToUserBookmarks.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -73,6 +74,7 @@ const bookmarksSlice = createSlice({
       // Cases for fetching user bookmarks
       .addCase(fetchUserBookmarks.pending, (state) => {
         state.fetchedBookmarks.status = "loading";
+        state.fetchedBookmarks.error = "";
       })
       .addCase(fetchUserBookmarks.fulfilled, (state, action) => {
         state.fetchedBookmarks.status = "succeeded";
@@ -86,6 +88,7 @@ const bookmarksSlice = createSlice({
       // Cases for removing bookmarks
       .addCase(RemoveToUserBookmarks.pending, (state) => {
         state.status = "loading";
+        state.error = "";
       })
       .addCase(RemoveToUserBookmarks.fulfilled, (state, action) => {
         state.status = "succeeded";

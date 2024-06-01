@@ -29,6 +29,7 @@ const nowPlayingMoviesListSlice = createSlice({
       // Cases for pending, fulfilled, and rejected states of fetching now playing movies list
       .addCase(fetchNowPlayingMoviesList.pending, (state, action) => {
         state.status = "loading";
+        state.error = "";
       })
       .addCase(fetchNowPlayingMoviesList.fulfilled, (state, action) => {
         state.status = "succeeded";

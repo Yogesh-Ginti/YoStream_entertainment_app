@@ -29,6 +29,7 @@ const movieContentSlice = createSlice({
       // Cases for pending, fulfilled, and rejected states of fetching movie content
       .addCase(fetchMovieContent.pending, (state, action) => {
         state.status = "loading";
+        state.error = "";
       })
       .addCase(fetchMovieContent.fulfilled, (state, action) => {
         state.status = "succeeded";

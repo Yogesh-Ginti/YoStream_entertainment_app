@@ -29,6 +29,7 @@ const popularMoviesListSlice = createSlice({
       // Cases for pending, fulfilled, and rejected states of fetching popular movies list
       .addCase(fetchPopularMoviesList.pending, (state, action) => {
         state.status = "loading";
+        state.error = "";
       })
       .addCase(fetchPopularMoviesList.fulfilled, (state, action) => {
         state.status = "succeeded";

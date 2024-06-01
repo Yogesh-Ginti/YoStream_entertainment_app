@@ -37,6 +37,7 @@ const searchBarSlice = createSlice({
     builder
       .addCase(fetchSearchItems.pending, (state, action)=>{
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchSearchItems.fulfilled, (state, action)=>{
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful

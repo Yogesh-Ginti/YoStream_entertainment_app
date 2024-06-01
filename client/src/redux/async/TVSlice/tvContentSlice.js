@@ -28,6 +28,7 @@ const tvContentSlice = createSlice({
     builder
       .addCase(fetchTVContent.pending, (state, action)=>{
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchTVContent.fulfilled, (state, action)=>{
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful

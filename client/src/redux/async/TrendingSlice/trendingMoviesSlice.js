@@ -28,6 +28,7 @@ const trendingMoviesListSlice = createSlice({
     builder
       .addCase(fetchTrendingMoviesList.pending, (state, action)=>{
         state.status = "loading"; // Set status to 'loading' while fetching data
+        state.error = "";
       })
       .addCase(fetchTrendingMoviesList.fulfilled, (state, action)=>{
         state.status = "succeeded"; // Set status to 'succeeded' when fetch is successful
