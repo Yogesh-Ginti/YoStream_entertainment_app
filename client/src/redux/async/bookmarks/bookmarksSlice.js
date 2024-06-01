@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { backend_base_url } from "../../../utils/constants";
 import axios from "axios";
 
+// Async thunk to add a bookmark for a user
 export const AddToUserBookmarks = createAsyncThunk(
   'bookmarks/AddToUserBookmarks',
   async ({ sr, poster, title, type }, { rejectWithValue }) => {
@@ -9,11 +10,12 @@ export const AddToUserBookmarks = createAsyncThunk(
       const response = await axios.post(`${backend_base_url}/bookmarks/add`, { sr, poster, title, type }, { withCredentials: true });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error while adding bookmarks");
+      return rejectWithValue(error.response.data || "An error occurred while adding bookmarks");
     }
   }
 );
 
+// Async thunk to remove a bookmark for a user
 export const RemoveToUserBookmarks = createAsyncThunk(
   'bookmarks/RemoveToUserBookmarks',
   async ({ orgId }, { rejectWithValue }) => {
@@ -21,11 +23,12 @@ export const RemoveToUserBookmarks = createAsyncThunk(
       const response = await axios.post(`${backend_base_url}/bookmarks/remove`, { orgId }, { withCredentials: true });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error while removing from bookmarks");
+      return rejectWithValue(error.response.data || "An error occurred while removing from bookmarks");
     }
   }
 );
 
+// Async thunk to fetch user bookmarks
 export const fetchUserBookmarks = createAsyncThunk(
   'bookmarks/fetchUserBookmarks',
   async (_, { rejectWithValue }) => {
@@ -33,11 +36,12 @@ export const fetchUserBookmarks = createAsyncThunk(
       const response = await axios.get(`${backend_base_url}/bookmarks`, { withCredentials: true });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error while fetching bookmarks");
+      return rejectWithValue(error.response.data || "An error occurred while fetching bookmarks");
     }
   }
 );
 
+// Slice for bookmarks
 const bookmarksSlice = createSlice({
   name: "bookmarks",
   initialState: {
@@ -53,6 +57,7 @@ const bookmarksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      // Cases for adding a bookmark
       .addCase(AddToUserBookmarks.pending, (state) => {
         state.status = "loading";
       })

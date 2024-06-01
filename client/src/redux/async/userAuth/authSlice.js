@@ -9,9 +9,9 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await axios.post(`${backend_base_url}/user/login`, { email, password }, { withCredentials: true });
       localStorage.setItem('user', JSON.stringify(response.data));
-      return response.data;
+      return response.data; // Return user data on successful login
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error on login");
+      return rejectWithValue(error.response.data || "An error occurred during login"); // Handling errors
     }
   }
 );
@@ -23,31 +23,31 @@ export const signUpUser = createAsyncThunk(
     try {
       const response = await axios.post(`${backend_base_url}/user/signup`, { username, email, password }, { withCredentials: true });
       localStorage.setItem('user', JSON.stringify(response.data));
-      return response.data;
+      return response.data; // Return user data on successful sign up
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error on SignUp");
+      return rejectWithValue(error.response.data || "An error occurred during sign up"); // Handling errors
     }
   }
 );
 
-// Thunk for logout up the user
+// Thunk for logging out the user
 export const logoutUser = createAsyncThunk(
   'auth/logoutUser',
   async (_, { rejectWithValue }) => {
     try {
       const response = await axios.post(`${backend_base_url}/user/logout`,{}, { withCredentials: true });
       localStorage.removeItem('user');
-      return response.data;
+      return response.data; // Return data on successful logout
     } catch (error) {
-      return rejectWithValue(error.response.data || "Getting error on Logout");
+      return rejectWithValue(error.response.data || "An error occurred during logout"); // Handling errors
     }
   }
 );
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')) || null,
-  loading: false,
-  error: null,
+  user: JSON.parse(localStorage.getItem('user')) || null, // Initial user state fetched from local storage
+  loading: false, // Initial loading state
+  error: null, // Initial error state
 };
 
 const authSlice = createSlice({
@@ -55,13 +55,13 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.user = null;
-      localStorage.removeItem('user');
+      state.user = null; // Clear user data on logout
+      localStorage.removeItem('user'); // Remove user data from local storage
     },
   },
   extraReducers: (builder) => {
     builder
-      // different cases for loginUser user
+      // Different cases for loginUser user
       .addCase(loginUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -75,7 +75,7 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-      // different cases for signUp user
+      // Different cases for signUp user
       .addCase(signUpUser.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -89,12 +89,12 @@ const authSlice = createSlice({
         state.error = action.payload;
       })
 
-      // different cases for logoutUser
+      // Different cases for logoutUser
       .addCase(logoutUser.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(logoutUser.fulfilled, (state, action) => {
+      .addCase(logoutUser.fulfilled, (state) => {
         state.loading = false;
         state.user = null;
       })
@@ -105,5 +105,5 @@ const authSlice = createSlice({
   },
 });
 
-export const { logout } = authSlice.actions;
-export default authSlice.reducer;
+export const { logout } = authSlice.actions; // Exporting logout action
+export default authSlice.reducer; // Exporting reducer for use in store
