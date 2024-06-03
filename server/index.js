@@ -17,8 +17,7 @@ connectDB()
 
 
 // Middleware
-// Enable CORS for development (remove for production)
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
@@ -28,7 +27,18 @@ app.use('/user',userRouter)
 app.use('/bookmarks', bookmarksRouter)
 
 app.get('/', (req,res)=>{
-  res.send(`server is running`)
+  res.json({
+    sucess: true,
+    name:"YoStream Api",
+    routes:[
+      {"/user/signup":"to signup the users"},
+      {"/user/login":"to login the users"},
+      {"/user/logout":"to logout the users"},
+      {"/bookmarks" : "to fetch user all bookmarks"},
+      {"/bookmarks/add" : "to add the items on user bookmarks"},
+      {"/bookmarks/remove" : "to remove a items from user bookmarks"}
+    ]
+  })
 })
 
 

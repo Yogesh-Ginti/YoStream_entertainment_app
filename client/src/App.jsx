@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       {/* Main container */}
-      <div className='sm:py-4 gap-2 h-screen w-full flex flex-col-reverse sm:flex-row'>
+      <div className='py-2 sm:py-4 gap-2 h-screen w-full flex flex-col-reverse sm:flex-row'>
         {/* Header container which contains logo and navigation icon */}
         <div className='sm:p-2 sm:w-[10%]'>
           <Header />

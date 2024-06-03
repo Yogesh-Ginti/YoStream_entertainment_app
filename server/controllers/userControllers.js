@@ -5,7 +5,7 @@ const UserModel = require('../models/user');
 
 const handleSignUp = async (req, res) => {
   const { username, email, password } = req.body;
-  
+
   // Validate input
   if (!username || !email || !password) {
     return res.status(400).json({ success: false, message: 'All fields are required' });
@@ -26,10 +26,10 @@ const handleSignUp = async (req, res) => {
     await user.save();
 
     // Generate JWT token
-    const token = jwt.sign({email : email, userId: user._id }, secret, { expiresIn: '24h' }); // Token expires in 1 hour for better security
+    const token = jwt.sign({ email: email, userId: user._id }, secret, { expiresIn: '24h' }); // Token expires in 1 hour for better security
 
     // Set cookie with the token
-    res.cookie("jwtToken", token, { httpOnly: true });
+    res.cookie("jwtToken", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
 
     // Respond with success message
     res.status(201).json({
@@ -60,13 +60,13 @@ const handleLogin = async (req, res) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ email: user.email,userId:user._id }, secret, { expiresIn: '24h' });
+    const token = jwt.sign({ email: user.email, userId: user._id }, secret, { expiresIn: '24h' });
 
     // Set cookie with the token
-    res.cookie('jwtToken', token, { httpOnly: true, secure: false });
+    res.cookie('jwtToken', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production' });
 
     // Respond with success message
-    res.status(200).json({ success: true, email:user.email, username:user.username, message: "Logged In" });
+    res.status(200).json({ success: true, email: user.email, username: user.username, message: "Logged In" });
   } catch (error) {
     res.status(500).json({ success: false, message: 'Error logging in' });
   }
@@ -74,7 +74,10 @@ const handleLogin = async (req, res) => {
 
 
 const handleLogout = async (req, res) => {
-  res.cookie('jwtToken', '', { maxAge: 1 }); // Set token cookie to expire immediately
+  res.cookie('jwtToken', '', {
+    maxAge: 1, httpOnly: true,
+    secure: process.env.NODE_ENV === 'production'
+  }); // Set token cookie to expire immediately
   res.status(200).json({ success: true, message: 'Logged out successfully' });
 }
 
