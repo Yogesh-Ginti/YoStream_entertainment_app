@@ -27,7 +27,7 @@ app.use('/user',userRouter)
 app.use('/bookmarks', bookmarksRouter)
 
 app.get('/', (req,res)=>{
-  res.json({
+  res.status(200).json({
     sucess: true,
     name:"YoStream Api",
     routes:[
