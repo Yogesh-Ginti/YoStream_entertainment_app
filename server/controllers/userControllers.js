@@ -46,6 +46,11 @@ const handleSignUp = async (req, res) => {
 
 const handleLogin = async (req, res) => {
   const { email, password } = req.body;
+
+  // Input validation
+  if (!email || !password) {
+    return res.status(400).json({ success: false, message: 'Email and password are required' });
+  }
   try {
     // Find user by email
     const user = await UserModel.findOne({ email });
