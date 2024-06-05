@@ -6,7 +6,7 @@ export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async ({ email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/user/login`, { email, password }, { withCredentials: true });
+      const response = await axios.post(`api/user/login`, { email, password }, { withCredentials: true });
       localStorage.setItem('user', JSON.stringify(response.data));
       return response.data; // Return user data on successful login
     } catch (error) {
@@ -20,7 +20,7 @@ export const signUpUser = createAsyncThunk(
   'auth/signUpUser',
   async ({ username, email, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/user/signup`, { username, email, password }, { withCredentials: true });
+      const response = await axios.post(`api/user/signup`, { username, email, password }, { withCredentials: true });
       localStorage.setItem('user', JSON.stringify(response.data));
       return response.data; // Return user data on successful sign up
     } catch (error) {
@@ -34,7 +34,7 @@ export const logoutUser = createAsyncThunk(
   'auth/logoutUser',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/user/logout`,{}, { withCredentials: true });
+      const response = await axios.post(`api/user/logout`,{}, { withCredentials: true });
       localStorage.removeItem('user');
       return response.data; // Return data on successful logout
     } catch (error) {

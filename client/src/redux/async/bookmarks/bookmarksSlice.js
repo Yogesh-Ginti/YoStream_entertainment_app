@@ -6,7 +6,7 @@ export const AddToUserBookmarks = createAsyncThunk(
   'bookmarks/AddToUserBookmarks',
   async ({ sr, poster, title, type }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/bookmarks/add`, { sr, poster, title, type }, { withCredentials: true });
+      const response = await axios.post(`api/bookmarks/add`, { sr, poster, title, type }, { withCredentials: true });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data || "An error occurred while adding bookmarks");
@@ -19,7 +19,7 @@ export const RemoveToUserBookmarks = createAsyncThunk(
   'bookmarks/RemoveToUserBookmarks',
   async ({ orgId }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/bookmarks/remove`, { orgId }, { withCredentials: true });
+      const response = await axios.post(`api/bookmarks/remove`, { orgId }, { withCredentials: true });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data || "An error occurred while removing from bookmarks");
@@ -32,7 +32,7 @@ export const fetchUserBookmarks = createAsyncThunk(
   'bookmarks/fetchUserBookmarks',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/bookmarks`, { withCredentials: true });
+      const response = await axios.get(`api/bookmarks`, { withCredentials: true });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data || "An error occurred while fetching bookmarks");

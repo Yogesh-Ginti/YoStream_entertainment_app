@@ -21,8 +21,8 @@ app.use(express.json());
 app.use(cookieParser())
 
 
-app.use('/user',userRouter)
-app.use('/bookmarks', bookmarksRouter)
+app.use('api/user',userRouter)
+app.use('api/bookmarks', bookmarksRouter)
 
 app.get('/', (req,res)=>{
   res.status(200).json({
