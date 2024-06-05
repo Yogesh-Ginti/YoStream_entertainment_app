@@ -15,9 +15,11 @@ dotenv.config();
 // Connection to MongoDB
 connectDB()
 
-
-// Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+//changes made here
+app.use(cors({
+  origin: '*',
+  credentials: true
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
