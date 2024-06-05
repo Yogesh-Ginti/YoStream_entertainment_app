@@ -5,10 +5,8 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      '/' :{
-        target : "https://yo-stream-entertainment-app.vercel.app",
-        changeOrigin: true
-      }
+      '/' : "https://yo-stream-entertainment-app.vercel.app",
+      
     }
   },
   plugins: [react()],
