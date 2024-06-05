@@ -6,7 +6,8 @@ export default defineConfig({
   server:{
     proxy:{
       '/' :{
-        target : "https://yo-stream-entertainment-app.vercel.app"
+        target : "https://yo-stream-entertainment-app.vercel.app",
+        changeOrigin: true
       }
     }
   },
