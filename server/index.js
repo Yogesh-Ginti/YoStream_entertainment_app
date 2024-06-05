@@ -17,7 +17,7 @@ connectDB()
 
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: "https://yo-stream-entertainment-app.vercel.app", credentials: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
