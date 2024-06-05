@@ -17,7 +17,7 @@ connectDB()
 
 //changes made here
 app.use(cors({
-  origin: '*',
+  origin: 'https://yo-stream.vercel.app',
   credentials: true
 }));
 app.use(express.urlencoded({ extended: false }));
