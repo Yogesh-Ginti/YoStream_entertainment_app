@@ -17,15 +17,7 @@ connectDB()
 
 
 // Middleware
-// CORS Configuration
-const corsOptions = {
-  origin: "https://yo-stream-entertainment-app.vercel.app",
-  credentials: true,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type,Authorization",
-};
-
-app.use(cors(corsOptions));
+app.use(cors({credentials: true }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
@@ -33,8 +25,6 @@ app.use(cookieParser())
 
 app.use('/user',userRouter)
 app.use('/bookmarks', bookmarksRouter)
-
-app.options('*', cors(corsOptions));  // Handling preflight requests
 
 app.get('/', (req,res)=>{
   res.status(200).json({
