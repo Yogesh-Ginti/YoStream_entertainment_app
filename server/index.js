@@ -16,8 +16,14 @@ dotenv.config();
 connectDB()
 
 
+
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL || "https://yo-stream-entertainment-api.vercel.app", credentials: true }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL || 'https://yo-stream-entertainment-app.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
