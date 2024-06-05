@@ -16,11 +16,6 @@ dotenv.config();
 connectDB()
 
 //changes made here
-app.use(cors({
-  origin: 'https://yo-stream.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
