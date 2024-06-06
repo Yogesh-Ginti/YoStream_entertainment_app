@@ -20,7 +20,10 @@ connectDB()
 app.use(cors({
   origin: process.env.FRONTEND_URL,
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true 
+  credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  // preflightContinue: false,
+  // optionsSuccessStatus: 204
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
