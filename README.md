@@ -93,7 +93,7 @@ By following these steps, you should have both the backend server and frontend a
 - You can visit [API Documentation](https://docs.google.com/document/d/1tn4v_gTwqz2mTWUaoeKcxgcmpqfc4A3N0k5QJOilRAk/edit?usp=sharing) here.
 
 ### Database Design
-    - You can visit [Database Design](https://docs.google.com/document/d/1N4f4X5XEqxi1XjrllHRGkIR45JexK35reaUiaqWJKIE/edit?usp=sharing) here.
+- You can visit [Database Design](https://docs.google.com/document/d/1N4f4X5XEqxi1XjrllHRGkIR45JexK35reaUiaqWJKIE/edit?usp=sharing) here.
 ## Contributing
 - Fork the repository.
 - Create a new branch (`git checkout -b feature-branch`).
