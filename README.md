@@ -67,12 +67,11 @@
  ``` REACT_APP_BACKEND_URL= "your live backend server"
  VITE_APP_TMDB_API_KEY= "your tmdb api key for image" ```
 
- 4. Start the Application: Run the frontend application.
+4. Start the Application: Run the frontend application.
   ```npm run dev```
 
- 5. Access the Application: Open your web browser and navigate to the specified URL (default: http://localhost:3000) to access the Entertainment App.
-
-  By following these steps, you should have both the backend server and frontend application running locally, allowing you to explore the features of the Entertainment App.
+5. Access the Application: Open your web browser and navigate to the specified URL (default: http://localhost:3000) to access the Entertainment App.
+By following these steps, you should have both the backend server and frontend application running locally, allowing you to explore the features of the Entertainment App.
 
 ## Project Structure
 ### Backend
@@ -95,8 +94,6 @@
 
 ### Database Design
     - You can visit [Database Design](https://docs.google.com/document/d/1N4f4X5XEqxi1XjrllHRGkIR45JexK35reaUiaqWJKIE/edit?usp=sharing) here.
-
-
 ## Contributing
 - Fork the repository.
 - Create a new branch (`git checkout -b feature-branch`).
@@ -109,4 +106,4 @@
 This project is licensed under the MIT License.
 
 ## Contact
-For any questions or feedback, please contact yogeshginti@gmail.com
+For any questions or feedback, please contact [gmail](yogeshginti@gmail.com)
