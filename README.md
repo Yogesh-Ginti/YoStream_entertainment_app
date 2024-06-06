@@ -57,18 +57,18 @@
 
 ### Frontend Setup
 1. Navigate to the Frontend Directory: Move into the client directory of the project.
- ``` cd ../client ```
+-  ``` cd ../client ```
 
 2. Install Dependencies: Install the necessary dependencies using npm.
- ``` npm install```
+-  ``` npm install```
 
 3. Configure Environment Variables: Create a .env file in the client directory and specify the URL of the backend server. For example:
 
- ``` REACT_APP_BACKEND_URL= "your live backend server"
- VITE_APP_TMDB_API_KEY= "your tmdb api key for image" ```
+ - ``` REACT_APP_BACKEND_URL= "your live backend server"```
+ - ```VITE_APP_TMDB_API_KEY= "your tmdb api key for image" ```
 
 4. Start the Application: Run the frontend application.
-  ```npm run dev```
+- ```npm run dev```
 
 5. Access the Application: Open your web browser and navigate to the specified URL (default: http://localhost:3000) to access the Entertainment App.
 By following these steps, you should have both the backend server and frontend application running locally, allowing you to explore the features of the Entertainment App.
