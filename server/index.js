@@ -22,7 +22,7 @@ app.use(cors({
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
-  // preflightContinue: false,
+  preflightContinue: false,
   // optionsSuccessStatus: 204
 }));
 app.use(express.urlencoded({ extended: false }));
