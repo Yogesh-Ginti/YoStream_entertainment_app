@@ -20,7 +20,7 @@ export const RemoveToUserBookmarks = createAsyncThunk(
   'bookmarks/RemoveToUserBookmarks',
   async ({ orgId }, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`${backend_base_url}/bookmarks/remove`, { orgId }, { withCredentials: true });
+      const response = await axios.post(`${backend_base_url}/bookmarks/remove`, { orgId }, { withCredentials: true });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data || "An error occurred while removing from bookmarks");

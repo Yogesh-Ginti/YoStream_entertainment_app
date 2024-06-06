@@ -7,7 +7,7 @@ const isUserAuthenticate = require("../middlewares/userAuth.js");
 
 router.get('/', isUserAuthenticate, handleAllBookmarks)
 router.post('/add', isUserAuthenticate, handleAddBookmarks)
-router.delete('/remove', isUserAuthenticate, handleRemoveBookmarks)
+router.post('/remove', isUserAuthenticate, handleRemoveBookmarks)
 
 
 
