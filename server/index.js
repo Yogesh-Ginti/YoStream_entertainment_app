@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
+const dotenv = require('dotenv');
 const connectDB = require('./dbConnection')
 const cookieParser = require('cookie-parser')
-const dotenv = require('dotenv');
 
 const userRouter = require('./routes/usersRoutes');
 const bookmarksRouter = require('./routes/bookmarksRoutes')
@@ -17,7 +17,14 @@ connectDB()
 
 
 // Middleware
-app.use(cors({ origin: process.env.FRONTEND_URL, credentials: true }));
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser())
