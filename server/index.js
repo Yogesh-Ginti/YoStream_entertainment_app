@@ -19,11 +19,8 @@ connectDB()
 // Middleware
 app.use(cors({
   origin: process.env.FRONTEND_URL,
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  preflightContinue: false,
-  optionsSuccessStatus: 204
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true 
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
