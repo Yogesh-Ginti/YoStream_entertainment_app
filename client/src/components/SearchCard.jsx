@@ -39,10 +39,10 @@ function SearchCard({ sr, poster, title, vote, type }) {
       <div className='p-2'>
         <div className='flex gap-4'>
           <span className='text-yellow-500 px-4'>{vote}</span> {/* Vote */}
-          <span>{type}</span> {/* Type */}
+          <span className='opacity-70'>{type}</span> {/* Type */}
         </div>
         <div className='flex w-[70%]'>
-          <span>{title}</span> {/* Title */}
+          <span className='text-lg font-medium'>{title}</span> {/* Title */}
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@ function SignUp() {
 
   // Selecting state from Redux store
   const { username, email, password, repassword, emailError, rePasswordError } = useSelector((state) => state.formInput);
-  const { user } = useSelector(state => state.auth);
+  const { user, error } = useSelector(state => state.auth);
 
   // Redirect to profile page if user is authenticated
   useEffect(() => {
@@ -73,6 +73,7 @@ function SignUp() {
         <div>
           <form onSubmit={handleRegister}>
             {/* Username input */}
+            {error && <p className='text-red-500'>{error}</p>}
             <div className='flex flex-col m-2'>
               <label htmlFor="username">Username</label>
               <input
