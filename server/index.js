@@ -23,7 +23,7 @@ app.use(cors({
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization'],
   preflightContinue: false,
-  // optionsSuccessStatus: 204
+  optionsSuccessStatus: 204
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
