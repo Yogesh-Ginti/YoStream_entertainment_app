@@ -29,7 +29,7 @@ const handleSignUp = async (req, res) => {
     const token = jwt.sign({ email: email, userId: user._id }, secret, { expiresIn: '24h' }); // Token expires in 1 hour for better security
 
     // Set cookie with the token
-    res.cookie("jwtToken", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', SameSite=Lax });
+    res.cookie("jwtToken", token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', SameSite : Lax });
 
     // Respond with success message
     res.status(201).json({
@@ -68,7 +68,7 @@ const handleLogin = async (req, res) => {
     const token = jwt.sign({ email: user.email, userId: user._id }, secret, { expiresIn: '24h' });
 
     // Set cookie with the token
-    res.cookie('jwtToken', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', SameSite=Lax });
+    res.cookie('jwtToken', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', SameSite : Lax });
 
     // Respond with success message
     res.status(200).json({ success: true, email: user.email, username: user.username, message: "Logged In" });
